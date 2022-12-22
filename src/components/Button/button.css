@@ -1,0 +1,19 @@
+@import '../../App.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.button{
+    border: 8px;
+    text-align: center;
+    line-height: 1;
+    flex: 1;
+    max-height: 5rem;
+    background-color: var(--buttonColor);
+    color: var(--white);
+    font-size: clamp(1.1rem, 3.7vw, 3rem );
+    padding: 15px;
+}

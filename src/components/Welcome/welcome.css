@@ -1,0 +1,57 @@
+@import '../../App.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.welcome-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.welcome-text-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+
+
+.welcome-text-info > h6 {
+    color: var(--welcomeText);
+    font-size: clamp(1rem, 5vw, 4rem);
+    text-transform: capitalize;
+}
+
+.welcome-text-info > h2 {
+    color: var(--white);
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 150;
+    line-height: 1.1;
+}
+.welcome-text-info > p{
+    color: var(--welcomeText);
+    font-size: clamp(.8rem, 5vw, 4rem);
+    font-size: 400;
+    line-height: 1.1;
+}
+
+.welcome-button-container{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 10vh;
+}
+
+.button.dark{
+    border: 1px solid var(--white);
+}

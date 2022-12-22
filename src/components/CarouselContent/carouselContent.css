@@ -1,0 +1,38 @@
+@import '../../App.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carouselContent-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4vh;
+    flex-shrink: 0;
+}
+
+
+.carouselContent-container > img {
+    width: 100%;
+    max-width: 350px;
+
+}
+
+.carouselContent-container > h5{
+    text-transform: capitalize;
+    text-align: center;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.carouselContent-container > p{
+    text-align: center;
+    font-weight: 400;
+    color: var(--white);
+}

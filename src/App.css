@@ -1,6 +1,10 @@
 #root {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+ --background: #0F0F29;
+ --buttonColor: #4838D1;
+ --blueElements: #1C1C4D;
+ --white: #F5F5FA;
+ --activeDot: #4838D1;
+ --notActive: #2E2E5D;
+ --welcomeText: #BBB1FA;
+ --inputText: #6A6A8B;
 }

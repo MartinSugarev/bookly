@@ -1,0 +1,19 @@
+@import '../../App.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.option-container{
+    border: 2px solid var(--white);
+    border-radius: 12px;
+    text-align: center;
+    line-height: 1;
+    color: var(--white);
+    padding: 5px 8px;
+    font-size: clamp(.9rem, 4.2vw, 2rem);
+    font-weight: 400;
+    cursor: pointer;
+}
