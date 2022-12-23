@@ -1,0 +1,48 @@
+@import '../../App.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.finish-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+}
+
+.finish-image-container{
+    width: 100%;
+}
+
+.finish-image-container > img{
+    width: 100%;
+    max-width: 350px;
+    object-fit: contain;
+
+}
+
+.finish-container > h3{
+    text-align: center;
+    font-weight: 600;
+    color: var(--white);
+    font-size: clamp(1rem, 5vw, 7rem);
+}
+
+.finish-container > p{
+    color: var(--white);
+    font-size: clamp(.8rem, 4.1vw, 4rem);
+    font-size: 400;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.finish-button-container{
+    width: 100%;
+    display: flex;
+    margin-bottom: 7vh;
+}

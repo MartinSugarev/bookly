@@ -1,11 +1,39 @@
 import './personalize.css';
-import React, {memo}from 'react';
+import React, {memo, useEffect, useState}from 'react';
 import MainLayout from '../MainLayout/MainLayout';
 import Option from '../Option/Option';
 import Button from '../Button/Button';
 import {options} from '../../onBoard-data'
 
 const Personalize = () => {
+
+   const [selectedItems, setSelectedItems] = useState(0);
+   const [selectedOptions, setSelectedOptions] = useState([])
+  
+
+   useEffect(() => {  
+     return localStorage.removeItem('options1')
+   }, [selectedOptions])
+
+    const handleOptionClick = (text, ref) => {
+      const indexOfOption = selectedOptions.indexOf(text)
+      if(indexOfOption < 0){
+          setSelectedOptions(prev => [...prev, text])
+          ref.current.style.background = '#4838D1';
+          setSelectedItems(prev => prev + 1)
+          return
+        }
+       const copyOfSelectedOptions = selectedOptions 
+       copyOfSelectedOptions.splice(indexOfOption, 1)
+       setSelectedOptions(copyOfSelectedOptions)
+      ref.current.style.background = 'transparent';
+      setSelectedItems(prev => prev - 1)
+    }
+
+    const handleSubmitClick = () => {
+        localStorage.setItem('savedOptions', JSON.stringify(selectedOptions))
+    }
+
     return (
         <MainLayout>
           <div className="personalize-container">
@@ -16,12 +44,12 @@ const Personalize = () => {
             <input type="text" placeholder="Placeholder" />
             <div className="personalize-options-container">
                {options.map((opt, index) => {
-                   return <Option key={index} text={opt} />
+                   return <Option handleOptionClick={handleOptionClick} key={index} text={opt} />
                })}
             </div>
-            <p>3 topics Selected</p>
+            <p>{`${selectedItems} topics Selected`}</p>
             <div className="personalize-button-container">
-                <Button text={'Submit'}/>
+                <Button text={'Submit'} handleClick={handleSubmitClick}/>
                 <Button text={'Skip'} color={'dark'}/>
             </div>
           </div>           

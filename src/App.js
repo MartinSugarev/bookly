@@ -1,9 +1,9 @@
 import "./App.css";
-import Personalize from '../src/components/Personalize/Personalize'
+import Finish from '../src/components/Finish/Finish'
 
 function App() {
   return (
-    <Personalize />
+    <Finish />
   );
 }
 

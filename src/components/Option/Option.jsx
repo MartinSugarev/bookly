@@ -1,9 +1,13 @@
 import './option.css';
-import React, {memo} from 'react'
+import React, {memo, useRef} from 'react'
 
-const Option = ({text}) => {
+const Option = ({text, handleOptionClick}) => {
+ 
+    const ref = useRef()
+
+
     return (
-        <div className="option-container">
+        <div ref={ref} onClick={() => handleOptionClick(ref.current.textContent, ref)} className="option-container">
             {text}
         </div>
     )
