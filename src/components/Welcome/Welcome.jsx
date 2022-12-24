@@ -1,9 +1,22 @@
 import './welcome.css';
 import React, {memo} from 'react';
+import {useNavigate} from 'react-router-dom'
 import MainLayout from '../MainLayout/MainLayout';
 import Button from '../Button/Button'
 
 const Welcome = () => {
+
+
+    const navigate = useNavigate()  
+
+
+    const handlePersonalizeClick = () => {
+       navigate('/preferences')
+    }
+    const handleSkipClick = () => {
+        navigate('/library')
+      }
+
     return (
         <MainLayout>
             <div className="welcome-container">
@@ -15,8 +28,8 @@ const Welcome = () => {
                     <p>By personalize your account, we can help you to find what you like.</p>
                 </div>
                 <div className="welcome-button-container">
-                  <Button text={"Personalize Your Account"}/>
-                  <Button text={"Skip"} color={"dark"}/>
+                  <Button handleClick={handlePersonalizeClick} text={"Personalize Your Account"}/>
+                  <Button handleClick={handleSkipClick} text={"Skip"} color={"dark"}/>
                 </div>
             </div>
         </MainLayout>

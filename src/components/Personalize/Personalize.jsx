@@ -1,5 +1,6 @@
 import './personalize.css';
 import React, {memo, useEffect, useState}from 'react';
+import {useNavigate} from 'react-router-dom';
 import MainLayout from '../MainLayout/MainLayout';
 import Option from '../Option/Option';
 import Button from '../Button/Button';
@@ -9,7 +10,7 @@ const Personalize = () => {
 
    const [selectedItems, setSelectedItems] = useState(0);
    const [selectedOptions, setSelectedOptions] = useState([])
-  
+   const navigate = useNavigate()
 
    useEffect(() => {  
      return localStorage.removeItem('options1')
@@ -32,6 +33,11 @@ const Personalize = () => {
 
     const handleSubmitClick = () => {
         localStorage.setItem('savedOptions', JSON.stringify(selectedOptions))
+        navigate('/ready')
+    }
+
+    const handleSkipClick = () => {
+      navigate('/library')
     }
 
     return (
@@ -50,7 +56,7 @@ const Personalize = () => {
             <p>{`${selectedItems} topics Selected`}</p>
             <div className="personalize-button-container">
                 <Button text={'Submit'} handleClick={handleSubmitClick}/>
-                <Button text={'Skip'} color={'dark'}/>
+                <Button handleClick={handleSkipClick} text={'Skip'} color={'dark'}/>
             </div>
           </div>           
         </MainLayout>

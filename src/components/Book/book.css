@@ -1,0 +1,49 @@
+@import '../../App.css';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.book-container{
+    width: 100%;
+    padding: .3rem;
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    cursor: pointer;
+}
+
+.book-image-container{
+    width: 100%;
+ 
+}
+
+.book-image-container > img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.book-text-container{
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 1;
+}
+
+p:nth-child(1){
+font-size: 1rem;
+font-weight: 500;
+text-align: left;
+color: var(--white);
+line-height: 1.1;
+}
+
+p:nth-child(2){
+font-size: .8rem;
+font-weight: 400;
+text-align: left;
+color: var(--white);
+}

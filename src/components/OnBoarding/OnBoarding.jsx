@@ -1,5 +1,6 @@
 import './onBoarding.css';
 import React, {memo, useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom'
 import MainLayout from '../MainLayout/MainLayout';
 import Button from '../Button/Button';
 import Carousel from '../Carousel/Carousel';
@@ -10,7 +11,7 @@ import {data} from '../../onBoard-data'
 const OnBoarding = () => {
 
    const [endOfScroll, setEndOfScroll] = useState(false)
-     
+   const navigate = useNavigate()  
    
     useEffect(() => {   
    const allSlides = document.querySelectorAll('.carouselContent-container')
@@ -19,6 +20,10 @@ const OnBoarding = () => {
    allSlides[0].classList.add('active')
 
     }, [])
+
+    const handleSkipClick = () => {
+       navigate('/welcome')
+    }
 
 
     const handleNextClick = () => {
@@ -41,6 +46,9 @@ const OnBoarding = () => {
      }
     }
 
+    const handleGetStartedClick = () => {
+       navigate('/welcome')
+    }
 
 
 
@@ -58,10 +66,10 @@ const OnBoarding = () => {
                   <Dots />
                </Carousel>
               { endOfScroll ? <div className="onboarding-button-container">
-                 <Button text={'Lets Get Started'} color={'light'} />
+                 <Button handleClick={handleGetStartedClick} text={'Lets Get Started'} color={'light'} />
               </div>
                 : <div className="onboarding-button-container">
-                 <Button text={"Skip"} color={'dark'}/>
+                 <Button handleClick={handleSkipClick} text={"Skip"} color={'dark'}/>
                  <Button handleClick={handleNextClick} text={"Next"} color={'light'}/>
               </div>}
            </div>
