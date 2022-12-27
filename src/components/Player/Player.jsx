@@ -1,10 +1,12 @@
 import './player.css'
-import React, {memo} from 'react';
+import React, {memo, useState} from 'react';
 import {useLocation, useNavigate} from 'react-router-dom';
 import LibraryLayOut from '../LibraryLayOut/LibraryLayOut';
+import { BsStopCircleFill } from 'react-icons/bs'
 
 const Player = () => {
-
+    
+    const [clicked, setClicked] = useState(false)
    const location = useLocation()
    const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ const Player = () => {
         <LibraryLayOut>
             <div className="player-header-container">
                 <img onClick={handleBackClick} style={{cursor: 'pointer'}} src='/Arrow - Left 2.svg' alt='arrow-left' />
-                <h5>{location.state.heading}</h5>
+                   <h5>{location.state.heading}</h5>
                 <p>...</p>
             </div>
             <div className="player-image-container">
@@ -31,7 +33,7 @@ const Player = () => {
                    <p>02.15</p> 
                    <p>47.32</p> 
                 </div>
-                <img src="/Play.svg" alt="play-icon"/>
+                  {clicked ? <BsStopCircleFill style={{display: 'block', width: '60px', height: '60px', color: '#ffffff', margin: 'auto', cursor: 'pointer'}} onClick={() => setClicked(false)} /> : <img onClick={() => setClicked(true)} src="/Play.svg" alt="play-icon"/>}
             </div>
         </LibraryLayOut>
     )

@@ -32,6 +32,10 @@ const Personalize = () => {
     }
 
     const handleSubmitClick = () => {
+       if(selectedOptions.length < 3){
+         alert('You should select at least 3 topics')
+         return
+       }
         localStorage.setItem('savedOptions', JSON.stringify(selectedOptions))
         navigate('/ready')
     }
